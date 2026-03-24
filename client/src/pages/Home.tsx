@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Slider } from "@/components/ui/slider";
-import { Cloud, Droplets, Thermometer } from "lucide-react";
+import { Droplets, Thermometer } from "lucide-react";
 
 interface WeatherStats {
   [month: string]: {
@@ -23,13 +22,12 @@ const DAYS_IN_MONTH = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 export default function Home() {
   const [stats, setStats] = useState<WeatherStats | null>(null);
-  const [selectedMonth, setSelectedMonth] = useState(3); // March
-  const [selectedDay, setSelectedDay] = useState(24); // 24th
+  const [selectedMonth, setSelectedMonth] = useState(3);
+  const [selectedDay, setSelectedDay] = useState(24);
   const [result, setResult] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Load weather stats
     fetch(`${import.meta.env.BASE_URL}weather_stats.json`)
       .then((res) => res.json())
       .then((data) => setStats(data))
@@ -53,16 +51,22 @@ export default function Home() {
   const maxDays = DAYS_IN_MONTH[selectedMonth - 1];
   const adjustedDay = Math.min(selectedDay, maxDays);
 
+  // Build day grid: pad to start from correct weekday (Mon=0 ... Sun=6)
+  // Use a simple 7-col grid starting from 1
+  const dayGrid: (number | null)[] = [];
+  // Get day-of-week for the 1st of the month (using year 2024 as reference for leap year)
+  const firstDow = new Date(2024, selectedMonth - 1, 1).getDay(); // 0=Sun
+  const startOffset = firstDow === 0 ? 6 : firstDow - 1; // Mon-based
+  for (let i = 0; i < startOffset; i++) dayGrid.push(null);
+  for (let d = 1; d <= maxDays; d++) dayGrid.push(d);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-green-50 to-blue-100">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-green-200 sticky top-0 z-50">
         <div className="container py-6">
-          <div className="flex items-center gap-3 mb-2">
-            <Cloud className="w-8 h-8 text-green-700" />
-            <h1 className="text-3xl font-bold text-green-900">神山町 天気確率予報</h1>
-          </div>
-          <p className="text-gray-600 text-sm">気象庁の過去30年分データから、その日の天気確率を予測します</p>
+          <h1 className="text-3xl font-bold text-green-900">神山町 天気確率予報</h1>
+          <p className="text-gray-600 text-sm mt-1">気象庁の過去30年分データから、その日の天気確率を予測します</p>
         </div>
       </header>
 
@@ -72,36 +76,63 @@ export default function Home() {
           {/* Search Panel */}
           <Card className="p-8 bg-white/90 backdrop-blur-sm border-green-200 shadow-lg">
             <h2 className="text-2xl font-bold text-green-900 mb-6">日付を選択</h2>
-            
-            <div className="space-y-6">
-              {/* Month Selection */}
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
-                  月: <span className="text-green-700 text-lg">{MONTHS[selectedMonth - 1]}</span>
-                </label>
-                <Slider
-                  value={[selectedMonth]}
-                  onValueChange={(val) => setSelectedMonth(val[0])}
-                  min={1}
-                  max={12}
-                  step={1}
-                  className="w-full"
-                />
-              </div>
 
-              {/* Day Selection */}
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
-                  日: <span className="text-green-700 text-lg">{adjustedDay}日</span>
-                </label>
-                <Slider
-                  value={[adjustedDay]}
-                  onValueChange={(val) => setSelectedDay(val[0])}
-                  min={1}
-                  max={maxDays}
-                  step={1}
-                  className="w-full"
-                />
+            {/* Month Selection */}
+            <div className="mb-6">
+              <p className="text-sm font-semibold text-gray-700 mb-3">月</p>
+              <div className="grid grid-cols-6 gap-2">
+                {MONTHS.map((label, i) => {
+                  const m = i + 1;
+                  return (
+                    <button
+                      key={m}
+                      onClick={() => {
+                        setSelectedMonth(m);
+                        setResult(null);
+                      }}
+                      className={`py-2 rounded-lg text-sm font-medium transition-all ${
+                        selectedMonth === m
+                          ? "bg-green-700 text-white shadow"
+                          : "bg-gray-100 text-gray-700 hover:bg-green-100"
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Day Selection — calendar grid */}
+            <div>
+              <p className="text-sm font-semibold text-gray-700 mb-3">日</p>
+              {/* Weekday headers */}
+              <div className="grid grid-cols-7 mb-1">
+                {["月", "火", "水", "木", "金", "土", "日"].map((d) => (
+                  <div key={d} className="text-center text-xs text-gray-400 font-medium py-1">{d}</div>
+                ))}
+              </div>
+              <div className="grid grid-cols-7 gap-1">
+                {dayGrid.map((d, idx) =>
+                  d === null ? (
+                    <div key={`empty-${idx}`} />
+                  ) : (
+                    <button
+                      key={d}
+                      onClick={() => {
+                        setSelectedDay(d);
+                        setResult(null);
+                      }}
+                      className={`aspect-square rounded-lg text-sm font-medium transition-all ${
+                        adjustedDay === d
+                          ? "bg-green-700 text-white shadow"
+                          : "bg-gray-100 text-gray-700 hover:bg-green-100"
+                      }`}
+                    >
+                      {d}
+                    </button>
+                  )
+                )}
               </div>
             </div>
 
@@ -111,7 +142,7 @@ export default function Home() {
               disabled={loading || !stats}
               className="w-full mt-8 bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-lg transition-all"
             >
-              {loading ? "検索中..." : "天気確率を表示"}
+              {loading ? "検索中..." : `${MONTHS[selectedMonth - 1]} ${adjustedDay}日の天気確率を表示`}
             </Button>
           </Card>
 
@@ -130,27 +161,23 @@ export default function Home() {
                       <Droplets className="w-6 h-6 text-blue-600" />
                       <h3 className="text-lg font-semibold text-blue-900">降水確率</h3>
                     </div>
-                    <div className="flex items-end gap-4">
-                      <div className="flex-1">
-                        <div className="relative w-32 h-32 mx-auto">
-                          <svg className="w-full h-full" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" fill="none" stroke="#e0e7ff" strokeWidth="8" />
-                            <circle
-                              cx="50"
-                              cy="50"
-                              r="45"
-                              fill="none"
-                              stroke="#2563eb"
-                              strokeWidth="8"
-                              strokeDasharray={`${(result.rain_probability / 100) * 282.7} 282.7`}
-                              strokeLinecap="round"
-                              transform="rotate(-90 50 50)"
-                            />
-                          </svg>
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-3xl font-bold text-blue-900">{result.rain_probability}%</span>
-                          </div>
-                        </div>
+                    <div className="relative w-32 h-32 mx-auto">
+                      <svg className="w-full h-full" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#e0e7ff" strokeWidth="8" />
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="45"
+                          fill="none"
+                          stroke="#2563eb"
+                          strokeWidth="8"
+                          strokeDasharray={`${(result.rain_probability / 100) * 282.7} 282.7`}
+                          strokeLinecap="round"
+                          transform="rotate(-90 50 50)"
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-3xl font-bold text-blue-900">{result.rain_probability}%</span>
                       </div>
                     </div>
                   </div>
@@ -177,8 +204,7 @@ export default function Home() {
 
             {!result && !loading && (
               <Card className="p-8 bg-white/90 backdrop-blur-sm border-green-200 shadow-lg text-center">
-                <Cloud className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                <p className="text-gray-500">左側で日付を選択して、「天気確率を表示」をクリックしてください</p>
+                <p className="text-gray-500">左側で日付を選択して、ボタンをクリックしてください</p>
               </Card>
             )}
           </div>
