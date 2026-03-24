@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Droplets, Thermometer } from "lucide-react";
 
@@ -24,8 +23,6 @@ export default function Home() {
   const [stats, setStats] = useState<WeatherStats | null>(null);
   const [selectedMonth, setSelectedMonth] = useState(3);
   const [selectedDay, setSelectedDay] = useState(24);
-  const [result, setResult] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}weather_stats.json`)
@@ -34,22 +31,10 @@ export default function Home() {
       .catch((err) => console.error("Failed to load weather stats:", err));
   }, []);
 
-  const handleSearch = () => {
-    if (!stats) return;
-    setLoading(true);
-    setTimeout(() => {
-      const monthData = stats[selectedMonth.toString()];
-      if (monthData && monthData[selectedDay.toString()]) {
-        setResult(monthData[selectedDay.toString()]);
-      } else {
-        setResult(null);
-      }
-      setLoading(false);
-    }, 300);
-  };
-
   const maxDays = DAYS_IN_MONTH[selectedMonth - 1];
   const adjustedDay = Math.min(selectedDay, maxDays);
+
+  const result = stats?.[selectedMonth.toString()]?.[adjustedDay.toString()] ?? null;
 
   // Build day grid: pad to start from correct weekday (Mon=0 ... Sun=6)
   // Use a simple 7-col grid starting from 1
@@ -88,7 +73,6 @@ export default function Home() {
                       key={m}
                       onClick={() => {
                         setSelectedMonth(m);
-                        setResult(null);
                       }}
                       className={`py-2 rounded-lg text-sm font-medium transition-all ${
                         selectedMonth === m
@@ -121,7 +105,6 @@ export default function Home() {
                       key={d}
                       onClick={() => {
                         setSelectedDay(d);
-                        setResult(null);
                       }}
                       className={`aspect-square rounded-lg text-sm font-medium transition-all ${
                         adjustedDay === d
@@ -136,14 +119,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Search Button */}
-            <Button
-              onClick={handleSearch}
-              disabled={loading || !stats}
-              className="w-full mt-8 bg-green-700 hover:bg-green-800 text-white font-semibold py-3 rounded-lg transition-all"
-            >
-              {loading ? "検索中..." : `${MONTHS[selectedMonth - 1]} ${adjustedDay}日の天気確率を表示`}
-            </Button>
           </Card>
 
           {/* Result Panel */}
@@ -202,9 +177,11 @@ export default function Home() {
               </Card>
             )}
 
-            {!result && !loading && (
+            {!result && (
               <Card className="p-8 bg-white/90 backdrop-blur-sm border-green-200 shadow-lg text-center">
-                <p className="text-gray-500">左側で日付を選択して、ボタンをクリックしてください</p>
+                <p className="text-gray-500">
+                  {!stats ? "データを読み込み中..." : "左側で日付を選択してください"}
+                </p>
               </Card>
             )}
           </div>
