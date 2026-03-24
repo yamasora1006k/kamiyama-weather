@@ -1,12 +1,26 @@
 """
 weather_stats.json 生成スクリプト
-- 改善①: ±3日移動平均（前後3日のデータを合算してサンプル数を増やす）
+- 改善①: ±3日ガウス重み付き移動平均（中心日ほど重みが大きい）
 - 改善②: 近年重み付け（直近10年を2倍、中間10年を1.5倍、古い10年を1倍）
 - 追加③: 月平均との比較・快晴確率・年間気温ランクなどの派生指標
+
+ガウス重み（距離ずれ → 重み）:
+  ±0日: 1.000
+  ±1日: 0.779
+  ±2日: 0.368
+  ±3日: 0.105
+  → 中心日のデータが最も強く効く
 """
 
 import json
+import math
 from datetime import date, timedelta
+
+# ── ガウス重み（sigma=1.5 で ±3日まで自然に減衰） ───────────────
+SIGMA = 1.5
+def gauss_weight(delta: int) -> float:
+    """日付のずれ delta に対するガウス重み（中心=1.0に正規化）"""
+    return math.exp(- (delta ** 2) / (2 * SIGMA ** 2))
 
 # ── 元データ読み込み（オリジナルの30年単純集計） ────────────────
 # まず元のシンプルなデータが必要なので、一時的にオリジナルを読む
@@ -66,20 +80,34 @@ for dt in dates:
         if raw is None:
             continue
         rain_count, total_years = raw
+
+        # 年代重み付き rain/total
         w_rain, w_total = weighted_rain_total(rain_count, total_years)
-        total_w_rain  += w_rain
-        total_w_total += w_total
+
+        # ガウス重み（日付のずれに応じて減衰）
+        delta = abs((nb - dt).days)
+        gw = gauss_weight(delta)
+
+        total_w_rain  += w_rain  * gw
+        total_w_total += w_total * gw
+
         nm, nd = str(nb.month), str(nb.day)
         if nm in original and nd in original[nm]:
             t = original[nm][nd].get("average_temperature")
             if t is not None:
-                temp_vals.append(t)
+                temp_vals.append((t, gw))  # (気温, ガウス重み)
 
     if total_w_total == 0:
         continue
 
     new_prob = round(total_w_rain / total_w_total * 100, 1)
-    new_temp = round(sum(temp_vals) / len(temp_vals), 1) if temp_vals else None
+    # 気温もガウス重み付き加重平均
+    if temp_vals:
+        tw_sum   = sum(t * w for t, w in temp_vals)
+        tw_total = sum(w for _, w in temp_vals)
+        new_temp = round(tw_sum / tw_total, 1)
+    else:
+        new_temp = None
 
     neighbor_years = [get_raw(nb.month, nb.day)[1] for nb in neighbors(dt, 3) if get_raw(nb.month, nb.day)]
     eff_years = round(sum(neighbor_years) / len(neighbor_years)) if neighbor_years else 30
