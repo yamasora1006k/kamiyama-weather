@@ -1,0 +1,1856 @@
+{
+  "1": {
+    "1": {
+      "rain_probability": 23.3,
+      "average_temperature": 4.6,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 20.0,
+      "average_temperature": 5.0,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 10.0,
+      "average_temperature": 5.2,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 20.0,
+      "average_temperature": 5.1,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 13.3,
+      "average_temperature": 4.4,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 33.3,
+      "average_temperature": 4.8,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 30.0,
+      "average_temperature": 4.7,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 33.3,
+      "average_temperature": 4.6,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 30.0,
+      "average_temperature": 4.3,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 26.7,
+      "average_temperature": 4.6,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 23.3,
+      "average_temperature": 4.4,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 36.7,
+      "average_temperature": 4.3,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 33.3,
+      "average_temperature": 4.4,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 30.0,
+      "average_temperature": 4.6,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 40.0,
+      "average_temperature": 4.4,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 40.0,
+      "average_temperature": 4.6,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 36.7,
+      "average_temperature": 4.7,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 26.7,
+      "average_temperature": 4.9,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 26.7,
+      "average_temperature": 4.4,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 43.3,
+      "average_temperature": 4.5,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 36.7,
+      "average_temperature": 4.6,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 43.3,
+      "average_temperature": 4.1,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 50.0,
+      "average_temperature": 4.3,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 53.3,
+      "average_temperature": 3.4,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 36.7,
+      "average_temperature": 3.4,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 30.0,
+      "average_temperature": 3.7,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 23.3,
+      "average_temperature": 4.4,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 36.7,
+      "average_temperature": 4.4,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 33.3,
+      "average_temperature": 4.0,
+      "years_analyzed": 30
+    },
+    "30": {
+      "rain_probability": 33.3,
+      "average_temperature": 4.4,
+      "years_analyzed": 30
+    },
+    "31": {
+      "rain_probability": 23.3,
+      "average_temperature": 4.5,
+      "years_analyzed": 30
+    }
+  },
+  "2": {
+    "1": {
+      "rain_probability": 36.7,
+      "average_temperature": 4.1,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 33.3,
+      "average_temperature": 4.3,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 26.7,
+      "average_temperature": 4.1,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 26.7,
+      "average_temperature": 4.2,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 26.7,
+      "average_temperature": 3.8,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 36.7,
+      "average_temperature": 4.2,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 30.0,
+      "average_temperature": 4.4,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 43.3,
+      "average_temperature": 4.1,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 26.7,
+      "average_temperature": 4.4,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 36.7,
+      "average_temperature": 4.7,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 36.7,
+      "average_temperature": 4.5,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 30.0,
+      "average_temperature": 5.0,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 20.0,
+      "average_temperature": 5.4,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 40.0,
+      "average_temperature": 6.2,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 46.7,
+      "average_temperature": 5.9,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 33.3,
+      "average_temperature": 5.4,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 40.0,
+      "average_temperature": 4.7,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 40.0,
+      "average_temperature": 4.9,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 26.7,
+      "average_temperature": 4.9,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 30.0,
+      "average_temperature": 5.9,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 16.7,
+      "average_temperature": 5.4,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 33.3,
+      "average_temperature": 6.0,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 36.7,
+      "average_temperature": 7.0,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 33.3,
+      "average_temperature": 5.7,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 26.7,
+      "average_temperature": 6.5,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 50.0,
+      "average_temperature": 6.6,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 30.0,
+      "average_temperature": 6.5,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 26.7,
+      "average_temperature": 6.8,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 62.5,
+      "average_temperature": 5.5,
+      "years_analyzed": 8
+    }
+  },
+  "3": {
+    "1": {
+      "rain_probability": 53.3,
+      "average_temperature": 7.8,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 30.0,
+      "average_temperature": 7.4,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 33.3,
+      "average_temperature": 6.2,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 56.7,
+      "average_temperature": 6.9,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 46.7,
+      "average_temperature": 7.9,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 40.0,
+      "average_temperature": 7.7,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 36.7,
+      "average_temperature": 7.1,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 26.7,
+      "average_temperature": 7.2,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 36.7,
+      "average_temperature": 7.1,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 33.3,
+      "average_temperature": 7.5,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 36.7,
+      "average_temperature": 7.8,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 20.0,
+      "average_temperature": 7.6,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 30.0,
+      "average_temperature": 8.1,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 43.3,
+      "average_temperature": 8.4,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 36.7,
+      "average_temperature": 9.0,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 36.7,
+      "average_temperature": 9.2,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 33.3,
+      "average_temperature": 9.8,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 40.0,
+      "average_temperature": 9.4,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 33.3,
+      "average_temperature": 9.9,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 40.0,
+      "average_temperature": 9.4,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 36.7,
+      "average_temperature": 9.4,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 40.0,
+      "average_temperature": 9.9,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 33.3,
+      "average_temperature": 9.4,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 46.7,
+      "average_temperature": 9.2,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 46.7,
+      "average_temperature": 9.4,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 33.3,
+      "average_temperature": 10.4,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 36.7,
+      "average_temperature": 10.6,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 36.7,
+      "average_temperature": 11.2,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 30.0,
+      "average_temperature": 10.9,
+      "years_analyzed": 30
+    },
+    "30": {
+      "rain_probability": 36.7,
+      "average_temperature": 11.1,
+      "years_analyzed": 30
+    },
+    "31": {
+      "rain_probability": 33.3,
+      "average_temperature": 11.2,
+      "years_analyzed": 30
+    }
+  },
+  "4": {
+    "1": {
+      "rain_probability": 36.7,
+      "average_temperature": 11.0,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 26.7,
+      "average_temperature": 11.6,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 30.0,
+      "average_temperature": 11.8,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 36.7,
+      "average_temperature": 11.4,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 30.0,
+      "average_temperature": 11.8,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 36.7,
+      "average_temperature": 12.8,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 43.3,
+      "average_temperature": 12.8,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 33.3,
+      "average_temperature": 13.3,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 26.7,
+      "average_temperature": 13.3,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 33.3,
+      "average_temperature": 13.4,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 33.3,
+      "average_temperature": 13.3,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 40.0,
+      "average_temperature": 13.4,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 40.0,
+      "average_temperature": 13.8,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 46.7,
+      "average_temperature": 13.9,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 40.0,
+      "average_temperature": 13.4,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 26.7,
+      "average_temperature": 14.0,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 40.0,
+      "average_temperature": 14.6,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 33.3,
+      "average_temperature": 14.6,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 30.0,
+      "average_temperature": 15.0,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 43.3,
+      "average_temperature": 15.1,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 36.7,
+      "average_temperature": 15.1,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 30.0,
+      "average_temperature": 15.3,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 33.3,
+      "average_temperature": 15.2,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 36.7,
+      "average_temperature": 15.0,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 30.0,
+      "average_temperature": 15.2,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 23.3,
+      "average_temperature": 15.2,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 30.0,
+      "average_temperature": 15.5,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 23.3,
+      "average_temperature": 15.7,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 30.0,
+      "average_temperature": 15.9,
+      "years_analyzed": 30
+    },
+    "30": {
+      "rain_probability": 33.3,
+      "average_temperature": 16.4,
+      "years_analyzed": 30
+    }
+  },
+  "5": {
+    "1": {
+      "rain_probability": 23.3,
+      "average_temperature": 17.1,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 26.7,
+      "average_temperature": 16.9,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 23.3,
+      "average_temperature": 17.0,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 20.0,
+      "average_temperature": 17.9,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 23.3,
+      "average_temperature": 18.2,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 36.7,
+      "average_temperature": 17.6,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 50.0,
+      "average_temperature": 17.8,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 26.7,
+      "average_temperature": 17.9,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 33.3,
+      "average_temperature": 17.3,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 33.3,
+      "average_temperature": 17.4,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 33.3,
+      "average_temperature": 17.6,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 36.7,
+      "average_temperature": 17.9,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 43.3,
+      "average_temperature": 17.7,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 33.3,
+      "average_temperature": 17.8,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 36.7,
+      "average_temperature": 18.1,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 30.0,
+      "average_temperature": 18.6,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 36.7,
+      "average_temperature": 19.0,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 30.0,
+      "average_temperature": 19.0,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 43.3,
+      "average_temperature": 18.8,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 40.0,
+      "average_temperature": 18.9,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 23.3,
+      "average_temperature": 19.3,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 26.7,
+      "average_temperature": 19.4,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 23.3,
+      "average_temperature": 19.4,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 33.3,
+      "average_temperature": 19.8,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 23.3,
+      "average_temperature": 19.7,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 36.7,
+      "average_temperature": 19.4,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 26.7,
+      "average_temperature": 20.0,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 20.0,
+      "average_temperature": 19.8,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 33.3,
+      "average_temperature": 20.0,
+      "years_analyzed": 30
+    },
+    "30": {
+      "rain_probability": 43.3,
+      "average_temperature": 20.1,
+      "years_analyzed": 30
+    },
+    "31": {
+      "rain_probability": 43.3,
+      "average_temperature": 19.9,
+      "years_analyzed": 30
+    }
+  },
+  "6": {
+    "1": {
+      "rain_probability": 16.7,
+      "average_temperature": 20.4,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 33.3,
+      "average_temperature": 19.9,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 36.7,
+      "average_temperature": 20.2,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 20.0,
+      "average_temperature": 20.6,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 36.7,
+      "average_temperature": 20.0,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 30.0,
+      "average_temperature": 20.8,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 33.3,
+      "average_temperature": 21.1,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 53.3,
+      "average_temperature": 20.7,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 43.3,
+      "average_temperature": 21.1,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 36.7,
+      "average_temperature": 21.4,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 63.3,
+      "average_temperature": 21.1,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 43.3,
+      "average_temperature": 21.8,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 30.0,
+      "average_temperature": 21.9,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 36.7,
+      "average_temperature": 21.8,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 50.0,
+      "average_temperature": 21.6,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 33.3,
+      "average_temperature": 22.2,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 26.7,
+      "average_temperature": 22.3,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 46.7,
+      "average_temperature": 22.0,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 56.7,
+      "average_temperature": 22.7,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 43.3,
+      "average_temperature": 22.9,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 56.7,
+      "average_temperature": 22.4,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 63.3,
+      "average_temperature": 22.6,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 53.3,
+      "average_temperature": 22.7,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 50.0,
+      "average_temperature": 23.0,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 53.3,
+      "average_temperature": 23.3,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 53.3,
+      "average_temperature": 23.3,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 53.3,
+      "average_temperature": 23.8,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 56.7,
+      "average_temperature": 24.0,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 53.3,
+      "average_temperature": 24.7,
+      "years_analyzed": 30
+    },
+    "30": {
+      "rain_probability": 50.0,
+      "average_temperature": 24.5,
+      "years_analyzed": 30
+    }
+  },
+  "7": {
+    "1": {
+      "rain_probability": 63.3,
+      "average_temperature": 24.6,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 43.3,
+      "average_temperature": 24.8,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 63.3,
+      "average_temperature": 24.6,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 56.7,
+      "average_temperature": 25.1,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 50.0,
+      "average_temperature": 25.0,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 40.0,
+      "average_temperature": 24.8,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 36.7,
+      "average_temperature": 25.0,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 50.0,
+      "average_temperature": 25.2,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 56.7,
+      "average_temperature": 25.1,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 46.7,
+      "average_temperature": 25.4,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 50.0,
+      "average_temperature": 25.6,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 50.0,
+      "average_temperature": 25.5,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 43.3,
+      "average_temperature": 25.5,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 53.3,
+      "average_temperature": 25.7,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 30.0,
+      "average_temperature": 25.8,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 30.0,
+      "average_temperature": 25.8,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 40.0,
+      "average_temperature": 25.7,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 36.7,
+      "average_temperature": 26.0,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 40.0,
+      "average_temperature": 26.0,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 36.7,
+      "average_temperature": 26.4,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 30.0,
+      "average_temperature": 26.8,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 16.7,
+      "average_temperature": 26.7,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 23.3,
+      "average_temperature": 26.9,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 16.7,
+      "average_temperature": 26.9,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 36.7,
+      "average_temperature": 26.6,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 33.3,
+      "average_temperature": 26.8,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 33.3,
+      "average_temperature": 26.8,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 23.3,
+      "average_temperature": 27.0,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 16.7,
+      "average_temperature": 27.2,
+      "years_analyzed": 30
+    },
+    "30": {
+      "rain_probability": 20.0,
+      "average_temperature": 27.3,
+      "years_analyzed": 30
+    },
+    "31": {
+      "rain_probability": 13.3,
+      "average_temperature": 27.2,
+      "years_analyzed": 30
+    }
+  },
+  "8": {
+    "1": {
+      "rain_probability": 20.0,
+      "average_temperature": 27.5,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 20.0,
+      "average_temperature": 27.4,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 13.3,
+      "average_temperature": 27.6,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 30.0,
+      "average_temperature": 27.6,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 26.7,
+      "average_temperature": 27.5,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 33.3,
+      "average_temperature": 27.5,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 43.3,
+      "average_temperature": 27.0,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 26.7,
+      "average_temperature": 27.0,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 33.3,
+      "average_temperature": 27.1,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 33.3,
+      "average_temperature": 27.3,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 20.0,
+      "average_temperature": 27.5,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 23.3,
+      "average_temperature": 27.1,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 26.7,
+      "average_temperature": 27.3,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 30.0,
+      "average_temperature": 27.1,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 50.0,
+      "average_temperature": 26.9,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 40.0,
+      "average_temperature": 26.9,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 40.0,
+      "average_temperature": 26.5,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 43.3,
+      "average_temperature": 26.5,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 33.3,
+      "average_temperature": 26.6,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 23.3,
+      "average_temperature": 26.4,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 26.7,
+      "average_temperature": 26.4,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 36.7,
+      "average_temperature": 26.5,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 36.7,
+      "average_temperature": 26.1,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 30.0,
+      "average_temperature": 26.1,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 36.7,
+      "average_temperature": 26.1,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 36.7,
+      "average_temperature": 25.6,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 36.7,
+      "average_temperature": 25.7,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 26.7,
+      "average_temperature": 25.7,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 40.0,
+      "average_temperature": 25.8,
+      "years_analyzed": 30
+    },
+    "30": {
+      "rain_probability": 50.0,
+      "average_temperature": 25.4,
+      "years_analyzed": 30
+    },
+    "31": {
+      "rain_probability": 30.0,
+      "average_temperature": 25.7,
+      "years_analyzed": 30
+    }
+  },
+  "9": {
+    "1": {
+      "rain_probability": 40.0,
+      "average_temperature": 25.0,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 33.3,
+      "average_temperature": 25.0,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 43.3,
+      "average_temperature": 25.0,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 40.0,
+      "average_temperature": 24.6,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 36.7,
+      "average_temperature": 24.7,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 53.3,
+      "average_temperature": 24.6,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 50.0,
+      "average_temperature": 24.7,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 50.0,
+      "average_temperature": 24.6,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 40.0,
+      "average_temperature": 24.5,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 50.0,
+      "average_temperature": 24.0,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 40.0,
+      "average_temperature": 24.2,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 43.3,
+      "average_temperature": 24.1,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 46.7,
+      "average_temperature": 24.2,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 40.0,
+      "average_temperature": 23.4,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 50.0,
+      "average_temperature": 23.1,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 50.0,
+      "average_temperature": 23.4,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 43.3,
+      "average_temperature": 23.3,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 36.7,
+      "average_temperature": 23.6,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 26.7,
+      "average_temperature": 23.1,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 30.0,
+      "average_temperature": 22.2,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 36.7,
+      "average_temperature": 22.0,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 56.7,
+      "average_temperature": 21.6,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 40.0,
+      "average_temperature": 21.1,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 33.3,
+      "average_temperature": 21.0,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 36.7,
+      "average_temperature": 21.2,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 26.7,
+      "average_temperature": 21.2,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 33.3,
+      "average_temperature": 20.7,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 30.0,
+      "average_temperature": 20.8,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 36.7,
+      "average_temperature": 20.4,
+      "years_analyzed": 30
+    },
+    "30": {
+      "rain_probability": 50.0,
+      "average_temperature": 20.2,
+      "years_analyzed": 30
+    }
+  },
+  "10": {
+    "1": {
+      "rain_probability": 36.7,
+      "average_temperature": 20.7,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 33.3,
+      "average_temperature": 20.6,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 43.3,
+      "average_temperature": 19.7,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 33.3,
+      "average_temperature": 19.6,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 53.3,
+      "average_temperature": 19.2,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 40.0,
+      "average_temperature": 19.2,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 43.3,
+      "average_temperature": 19.1,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 46.7,
+      "average_temperature": 18.8,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 43.3,
+      "average_temperature": 18.4,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 26.7,
+      "average_temperature": 18.8,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 20.0,
+      "average_temperature": 18.8,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 13.3,
+      "average_temperature": 18.7,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 20.0,
+      "average_temperature": 18.2,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 33.3,
+      "average_temperature": 17.9,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 30.0,
+      "average_temperature": 17.7,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 20.0,
+      "average_temperature": 17.3,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 40.0,
+      "average_temperature": 16.6,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 23.3,
+      "average_temperature": 16.6,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 30.0,
+      "average_temperature": 16.4,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 30.0,
+      "average_temperature": 16.3,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 30.0,
+      "average_temperature": 15.8,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 43.3,
+      "average_temperature": 16.1,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 43.3,
+      "average_temperature": 16.2,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 26.7,
+      "average_temperature": 15.8,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 33.3,
+      "average_temperature": 15.7,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 36.7,
+      "average_temperature": 15.3,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 26.7,
+      "average_temperature": 14.8,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 36.7,
+      "average_temperature": 14.4,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 16.7,
+      "average_temperature": 14.4,
+      "years_analyzed": 30
+    },
+    "30": {
+      "rain_probability": 30.0,
+      "average_temperature": 14.2,
+      "years_analyzed": 30
+    },
+    "31": {
+      "rain_probability": 30.0,
+      "average_temperature": 13.9,
+      "years_analyzed": 30
+    }
+  },
+  "11": {
+    "1": {
+      "rain_probability": 40.0,
+      "average_temperature": 14.6,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 30.0,
+      "average_temperature": 14.4,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 23.3,
+      "average_temperature": 13.8,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 16.7,
+      "average_temperature": 13.1,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 23.3,
+      "average_temperature": 13.3,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 36.7,
+      "average_temperature": 14.0,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 20.0,
+      "average_temperature": 13.8,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 23.3,
+      "average_temperature": 13.6,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 30.0,
+      "average_temperature": 13.2,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 26.7,
+      "average_temperature": 12.8,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 36.7,
+      "average_temperature": 12.6,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 40.0,
+      "average_temperature": 12.8,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 33.3,
+      "average_temperature": 11.8,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 30.0,
+      "average_temperature": 11.9,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 30.0,
+      "average_temperature": 12.1,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 23.3,
+      "average_temperature": 11.3,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 30.0,
+      "average_temperature": 11.3,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 36.7,
+      "average_temperature": 10.2,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 26.7,
+      "average_temperature": 9.7,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 23.3,
+      "average_temperature": 10.5,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 13.3,
+      "average_temperature": 10.4,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 30.0,
+      "average_temperature": 10.2,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 26.7,
+      "average_temperature": 10.0,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 36.7,
+      "average_temperature": 9.5,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 23.3,
+      "average_temperature": 10.3,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 36.7,
+      "average_temperature": 10.4,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 26.7,
+      "average_temperature": 10.3,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 20.0,
+      "average_temperature": 9.8,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 23.3,
+      "average_temperature": 9.5,
+      "years_analyzed": 30
+    },
+    "30": {
+      "rain_probability": 33.3,
+      "average_temperature": 9.4,
+      "years_analyzed": 30
+    }
+  },
+  "12": {
+    "1": {
+      "rain_probability": 26.7,
+      "average_temperature": 8.7,
+      "years_analyzed": 30
+    },
+    "2": {
+      "rain_probability": 40.0,
+      "average_temperature": 8.3,
+      "years_analyzed": 30
+    },
+    "3": {
+      "rain_probability": 33.3,
+      "average_temperature": 8.3,
+      "years_analyzed": 30
+    },
+    "4": {
+      "rain_probability": 36.7,
+      "average_temperature": 8.0,
+      "years_analyzed": 30
+    },
+    "5": {
+      "rain_probability": 33.3,
+      "average_temperature": 8.1,
+      "years_analyzed": 30
+    },
+    "6": {
+      "rain_probability": 40.0,
+      "average_temperature": 7.4,
+      "years_analyzed": 30
+    },
+    "7": {
+      "rain_probability": 20.0,
+      "average_temperature": 7.2,
+      "years_analyzed": 30
+    },
+    "8": {
+      "rain_probability": 26.7,
+      "average_temperature": 7.0,
+      "years_analyzed": 30
+    },
+    "9": {
+      "rain_probability": 30.0,
+      "average_temperature": 6.9,
+      "years_analyzed": 30
+    },
+    "10": {
+      "rain_probability": 23.3,
+      "average_temperature": 7.2,
+      "years_analyzed": 30
+    },
+    "11": {
+      "rain_probability": 36.7,
+      "average_temperature": 8.0,
+      "years_analyzed": 30
+    },
+    "12": {
+      "rain_probability": 33.3,
+      "average_temperature": 7.0,
+      "years_analyzed": 30
+    },
+    "13": {
+      "rain_probability": 40.0,
+      "average_temperature": 6.6,
+      "years_analyzed": 30
+    },
+    "14": {
+      "rain_probability": 46.7,
+      "average_temperature": 6.5,
+      "years_analyzed": 30
+    },
+    "15": {
+      "rain_probability": 16.7,
+      "average_temperature": 6.6,
+      "years_analyzed": 30
+    },
+    "16": {
+      "rain_probability": 43.3,
+      "average_temperature": 6.4,
+      "years_analyzed": 30
+    },
+    "17": {
+      "rain_probability": 50.0,
+      "average_temperature": 5.7,
+      "years_analyzed": 30
+    },
+    "18": {
+      "rain_probability": 30.0,
+      "average_temperature": 5.5,
+      "years_analyzed": 30
+    },
+    "19": {
+      "rain_probability": 40.0,
+      "average_temperature": 5.5,
+      "years_analyzed": 30
+    },
+    "20": {
+      "rain_probability": 13.3,
+      "average_temperature": 5.9,
+      "years_analyzed": 30
+    },
+    "21": {
+      "rain_probability": 43.3,
+      "average_temperature": 6.2,
+      "years_analyzed": 30
+    },
+    "22": {
+      "rain_probability": 46.7,
+      "average_temperature": 6.0,
+      "years_analyzed": 30
+    },
+    "23": {
+      "rain_probability": 33.3,
+      "average_temperature": 5.9,
+      "years_analyzed": 30
+    },
+    "24": {
+      "rain_probability": 26.7,
+      "average_temperature": 5.9,
+      "years_analyzed": 30
+    },
+    "25": {
+      "rain_probability": 43.3,
+      "average_temperature": 5.9,
+      "years_analyzed": 30
+    },
+    "26": {
+      "rain_probability": 40.0,
+      "average_temperature": 5.7,
+      "years_analyzed": 30
+    },
+    "27": {
+      "rain_probability": 26.7,
+      "average_temperature": 5.2,
+      "years_analyzed": 30
+    },
+    "28": {
+      "rain_probability": 33.3,
+      "average_temperature": 4.8,
+      "years_analyzed": 30
+    },
+    "29": {
+      "rain_probability": 23.3,
+      "average_temperature": 5.3,
+      "years_analyzed": 30
+    },
+    "30": {
+      "rain_probability": 36.7,
+      "average_temperature": 5.6,
+      "years_analyzed": 30
+    },
+    "31": {
+      "rain_probability": 43.3,
+      "average_temperature": 4.6,
+      "years_analyzed": 30
+    }
+  }
+}
