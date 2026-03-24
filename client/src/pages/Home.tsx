@@ -11,8 +11,9 @@ interface WeatherStats {
   };
 }
 
-const MONTHS = ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];
+const MONTHS = ["1","2","3","4","5","6","7","8","9","10","11","12"];
 const DAYS_IN_MONTH = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const WEEKDAYS = ["月","火","水","木","金","土","日"];
 
 const today = new Date();
 const CURRENT_YEAR = today.getFullYear();
@@ -40,160 +41,168 @@ export default function Home() {
   for (let d = 1; d <= maxDays; d++) dayGrid.push(d);
 
   return (
-    <div className="h-screen flex flex-col bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 overflow-hidden">
-      {/* Header */}
-      <header className="shrink-0 px-6 py-3 border-b border-green-200 bg-white/80 backdrop-blur-sm">
-        <h1 className="text-xl font-bold text-green-900">神山町 天気確率予報</h1>
-        <p className="text-gray-400 text-xs">気象庁の過去30年分データから天気確率を予測します</p>
+    <div className="h-screen flex flex-col bg-gray-50 overflow-hidden text-gray-800">
+
+      {/* Header — minimal */}
+      <header className="shrink-0 flex items-center justify-between px-8 py-4 bg-white border-b border-gray-200">
+        <div>
+          <h1 className="text-base font-semibold text-gray-900">神山町 天気確率予報</h1>
+          <p className="text-xs text-gray-400 mt-0.5">気象庁の過去30年分データに基づく統計</p>
+        </div>
+        <span className="text-xs text-gray-400">{CURRENT_YEAR}年</span>
       </header>
 
-      {/* Body: 50/50 split */}
-      <div className="flex flex-1 min-h-0">
+      {/* Main */}
+      <div className="flex flex-1 min-h-0 p-6 gap-6">
 
-        {/* Left 50%: date picker */}
-        <div className="w-1/2 flex flex-col p-4 border-r border-green-100">
-          <div className="bg-white/90 rounded-2xl shadow border border-green-200 p-4 flex flex-col gap-2 h-full">
-            {/* Year + month label */}
-            <div className="flex items-baseline gap-1.5 shrink-0">
-              <span className="text-xs text-gray-400">{CURRENT_YEAR}年</span>
-              <span className="text-2xl font-bold text-green-900">{MONTHS[selectedMonth - 1]}</span>
-            </div>
+        {/* Left: calendar */}
+        <div className="w-1/2 flex flex-col bg-white rounded-2xl shadow-sm border border-gray-200 p-5 gap-4">
 
-            {/* Month buttons */}
-            <div className="grid grid-cols-6 gap-1 shrink-0">
-              {MONTHS.map((label, i) => {
-                const m = i + 1;
-                return (
-                  <button
-                    key={m}
-                    onClick={() => setSelectedMonth(m)}
-                    className={`py-1.5 rounded-lg text-xs font-medium transition-all ${
-                      selectedMonth === m
-                        ? "bg-green-700 text-white shadow"
-                        : "bg-gray-100 text-gray-600 hover:bg-green-100"
-                    }`}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-            </div>
+          {/* Month tabs */}
+          <div className="flex gap-1 flex-wrap">
+            {MONTHS.map((label, i) => {
+              const m = i + 1;
+              return (
+                <button
+                  key={m}
+                  onClick={() => setSelectedMonth(m)}
+                  className={`px-2.5 py-1 rounded-full text-xs font-medium transition-all ${
+                    selectedMonth === m
+                      ? "bg-green-600 text-white"
+                      : "text-gray-500 hover:bg-gray-100"
+                  }`}
+                >
+                  {label}月
+                </button>
+              );
+            })}
+          </div>
 
-            {/* Calendar — flex-1 to fill remaining space */}
-            <div className="flex-1 flex flex-col min-h-0">
-              <div className="grid grid-cols-7">
-                {["月","火","水","木","金","土","日"].map((d) => (
-                  <div key={d} className="text-center text-xs text-gray-400 py-1">{d}</div>
-                ))}
+          {/* Month label */}
+          <div className="text-lg font-bold text-gray-900 -mb-1">
+            {selectedMonth}月
+          </div>
+
+          {/* Weekday row */}
+          <div className="grid grid-cols-7 text-center">
+            {WEEKDAYS.map((d, i) => (
+              <div key={d} className={`text-xs font-medium py-1 ${i === 5 ? "text-blue-400" : i === 6 ? "text-red-400" : "text-gray-400"}`}>
+                {d}
               </div>
-              <div className="grid grid-cols-7 gap-1 flex-1 content-start">
-                {dayGrid.map((d, idx) =>
-                  d === null ? (
-                    <div key={`e-${idx}`} />
-                  ) : (
-                    <button
-                      key={d}
-                      onClick={() => setSelectedDay(d)}
-                      className={`aspect-square rounded-lg text-sm font-medium transition-all ${
-                        adjustedDay === d
-                          ? "bg-green-700 text-white shadow"
-                          : "bg-gray-100 text-gray-700 hover:bg-green-100"
-                      }`}
-                    >
-                      {d}
-                    </button>
-                  )
-                )}
-              </div>
-            </div>
+            ))}
+          </div>
+
+          {/* Day grid */}
+          <div className="grid grid-cols-7 gap-y-1 flex-1 content-start">
+            {dayGrid.map((d, idx) => {
+              if (d === null) return <div key={`e-${idx}`} />;
+              const col = (startOffset + d - 1) % 7; // 0=Mon … 6=Sun
+              const isSat = col === 5;
+              const isSun = col === 6;
+              const isSelected = adjustedDay === d;
+              return (
+                <button
+                  key={d}
+                  onClick={() => setSelectedDay(d)}
+                  className={`mx-auto w-8 h-8 rounded-full text-sm transition-all flex items-center justify-center ${
+                    isSelected
+                      ? "bg-green-600 text-white font-bold shadow"
+                      : isSun
+                      ? "text-red-400 hover:bg-red-50"
+                      : isSat
+                      ? "text-blue-400 hover:bg-blue-50"
+                      : "text-gray-700 hover:bg-gray-100"
+                  }`}
+                >
+                  {d}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Right 50%: result */}
-        <div className="w-1/2 flex flex-col p-4">
-          <div className="bg-white/90 rounded-2xl shadow border border-green-200 p-5 flex flex-col gap-4 h-full">
-            <h2 className="text-base font-bold text-green-900 shrink-0">
-              {CURRENT_YEAR}年 {MONTHS[selectedMonth - 1]} {adjustedDay}日の統計
-            </h2>
+        {/* Right: result */}
+        <div className="w-1/2 flex flex-col gap-4">
 
-            {!stats && (
-              <div className="flex-1 flex items-center justify-center">
-                <p className="text-gray-400 text-sm">データを読み込み中...</p>
+          {/* Selected date label */}
+          <div className="text-lg font-bold text-gray-900">
+            {selectedMonth}月 {adjustedDay}日
+            <span className="text-sm font-normal text-gray-400 ml-2">の過去30年統計</span>
+          </div>
+
+          {!stats && (
+            <div className="flex-1 flex items-center justify-center text-gray-400 text-sm">
+              読み込み中...
+            </div>
+          )}
+
+          {stats && result && (
+            <div className="flex flex-col gap-4 flex-1">
+              {/* Rain card */}
+              <div className="flex-1 bg-white rounded-2xl shadow-sm border border-gray-200 p-5 flex items-center gap-5">
+                {/* Circle */}
+                <div className="relative w-16 h-16 shrink-0">
+                  <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
+                    <circle cx="18" cy="18" r="15" fill="none" stroke="#e0e7ff" strokeWidth="3" />
+                    <circle
+                      cx="18" cy="18" r="15" fill="none"
+                      stroke="#3b82f6" strokeWidth="3"
+                      strokeDasharray={`${(result.rain_probability / 100) * 94.2} 94.2`}
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-xs font-bold text-blue-700">{result.rain_probability}%</span>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <Droplets className="w-4 h-4 text-blue-500" />
+                    <span className="text-sm font-semibold text-gray-800">降水確率</span>
+                  </div>
+                  <p className="text-2xl font-bold text-blue-700">{result.rain_probability}%</p>
+                  <p className="text-xs text-gray-400 mt-0.5">
+                    {result.rain_probability >= 60 ? "雨が降りやすい日" :
+                     result.rain_probability >= 30 ? "雨の可能性あり" :
+                     "晴れやすい日"}
+                  </p>
+                </div>
               </div>
-            )}
 
-            {stats && !result && (
-              <div className="flex-1 flex items-center justify-center">
-                <p className="text-gray-400 text-sm">日付を選択してください</p>
-              </div>
-            )}
-
-            {stats && result && (
-              <div className="flex-1 flex flex-col gap-3 min-h-0">
-                {/* Rain */}
-                <div className="flex-1 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 flex items-center gap-4">
-                  <div className="relative w-20 h-20 shrink-0">
-                    <svg className="w-full h-full" viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="#e0e7ff" strokeWidth="10" />
-                      <circle
-                        cx="50" cy="50" r="40" fill="none"
-                        stroke="#2563eb" strokeWidth="10"
-                        strokeDasharray={`${(result.rain_probability / 100) * 251.3} 251.3`}
-                        strokeLinecap="round"
-                        transform="rotate(-90 50 50)"
-                      />
-                    </svg>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-lg font-bold text-blue-900">{result.rain_probability}%</span>
-                    </div>
+              {/* Temp card */}
+              {result.average_temperature !== null && (
+                <div className="flex-1 bg-white rounded-2xl shadow-sm border border-gray-200 p-5 flex items-center gap-5">
+                  <div className="w-16 h-16 shrink-0 flex items-center justify-center rounded-full bg-orange-50">
+                    <Thermometer className="w-7 h-7 text-orange-400" />
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5 mb-1">
-                      <Droplets className="w-4 h-4 text-blue-600" />
-                      <span className="text-sm font-semibold text-blue-900">降水確率</span>
+                      <span className="text-sm font-semibold text-gray-800">平均気温</span>
                     </div>
-                    <p className="text-xs text-blue-700">
-                      {result.rain_probability >= 60 ? "雨が降りやすい日です" :
-                       result.rain_probability >= 30 ? "雨の可能性があります" :
-                       "晴れやすい日です"}
+                    <p className="text-2xl font-bold text-orange-600">{result.average_temperature}°C</p>
+                    <p className="text-xs text-gray-400 mt-0.5">
+                      {result.average_temperature >= 25 ? "暑い日" :
+                       result.average_temperature >= 15 ? "過ごしやすい" :
+                       result.average_temperature >= 5  ? "肌寒い日" :
+                       "寒い日"}
                     </p>
                   </div>
                 </div>
+              )}
 
-                {/* Temperature */}
-                {result.average_temperature !== null && (
-                  <div className="flex-1 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-4 flex items-center gap-4">
-                    <div className="w-20 flex items-center justify-center shrink-0">
-                      <span className="text-4xl font-bold text-orange-900">{result.average_temperature}°</span>
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <Thermometer className="w-4 h-4 text-orange-600" />
-                        <span className="text-sm font-semibold text-orange-900">平均気温</span>
-                      </div>
-                      <p className="text-xs text-orange-700">
-                        {result.average_temperature >= 25 ? "暑い日になりそうです" :
-                         result.average_temperature >= 15 ? "過ごしやすい気温です" :
-                         result.average_temperature >= 5  ? "肌寒い日です" :
-                         "寒い日になりそうです"}
-                      </p>
-                    </div>
-                  </div>
-                )}
+              <p className="text-xs text-gray-400">
+                過去{result.years_analyzed}年分 / 穴吹観測点（神山町周辺）
+              </p>
+            </div>
+          )}
 
-                <p className="text-xs text-gray-400 shrink-0">
-                  過去{result.years_analyzed}年分の観測データ（穴吹観測点）に基づく統計
-                </p>
-              </div>
-            )}
-          </div>
+          {stats && !result && (
+            <div className="flex-1 flex items-center justify-center text-gray-400 text-sm">
+              日付を選択してください
+            </div>
+          )}
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="shrink-0 text-center text-xs text-gray-400 py-1.5">
-        データソース: 気象庁 | 穴吹観測点（神山町周辺）| 1996年〜2025年
-      </footer>
     </div>
   );
 }
