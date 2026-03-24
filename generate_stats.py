@@ -1,164 +1,166 @@
 """
 weather_stats.json 生成スクリプト
-- 元データ: weather_stats.json（既存の30年分単純集計）
 - 改善①: ±3日移動平均（前後3日のデータを合算してサンプル数を増やす）
 - 改善②: 近年重み付け（直近10年を2倍、中間10年を1.5倍、古い10年を1倍）
+- 追加③: 月平均との比較・快晴確率・年間気温ランクなどの派生指標
 """
 
 import json
 from datetime import date, timedelta
 
-# ── 元データ読み込み ──────────────────────────────────────────
-with open("client/public/weather_stats.json") as f:
-    original = json.load(f)
+# ── 元データ読み込み（オリジナルの30年単純集計） ────────────────
+# まず元のシンプルなデータが必要なので、一時的にオリジナルを読む
+# ※ このスクリプトを2回目以降実行する場合はoriginal_stats.jsonを参照
+import os
+ORIGINAL_PATH = "client/public/original_stats.json"
+OUTPUT_PATH   = "client/public/weather_stats.json"
 
-# ── ヘルパー: 元データから特定日の生データ（雨の回数・年数）を取得 ──
-# years_analyzed と rain_probability から雨の回数を逆算する
+if os.path.exists(ORIGINAL_PATH):
+    with open(ORIGINAL_PATH) as f:
+        original = json.load(f)
+else:
+    # 初回: 現在のweather_stats.jsonをoriginalとして保存
+    with open(OUTPUT_PATH) as f:
+        original = json.load(f)
+    with open(ORIGINAL_PATH, "w") as f:
+        json.dump(original, f, ensure_ascii=False, indent=2)
+    print(f"元データを {ORIGINAL_PATH} に保存しました")
+
+# ── ヘルパー ─────────────────────────────────────────────────
 def get_raw(month: int, day: int):
-    """(rain_count, total_years) を返す"""
-    m = str(month)
-    d = str(day)
+    m, d = str(month), str(day)
     if m not in original or d not in original[m]:
         return None
-    entry = original[m][d]
-    total = entry["years_analyzed"]
-    rain_count = round(entry["rain_probability"] / 100 * total)
+    e = original[m][d]
+    total = e["years_analyzed"]
+    rain_count = round(e["rain_probability"] / 100 * total)
     return rain_count, total
 
-# ── 日付リスト（うるう年基準で366日） ──────────────────────────
 def all_dates():
-    """2024年（うるう年）の全365+1日を返す"""
     base = date(2024, 1, 1)
     return [base + timedelta(days=i) for i in range(366)]
 
-# ── 前後3日の隣接日リスト ─────────────────────────────────────
 def neighbors(dt: date, window=3):
-    """dt の前後 window 日（dt自身を含む）を返す"""
     return [dt + timedelta(days=i) for i in range(-window, window + 1)]
 
-# ── 年代別重み（1996〜2025年） ────────────────────────────────
-# 古い10年（1996-2005）: 重み1.0
-# 中間10年（2006-2015）: 重み1.5
-# 直近10年（2016-2025）: 重み2.0
-def year_weight(year: int) -> float:
-    if year >= 2016:
-        return 2.0
-    elif year >= 2006:
-        return 1.5
-    else:
-        return 1.0
-
-# 各年の重みを合計（全30年分）
-# 古い10年: 10×1.0=10, 中間10年: 10×1.5=15, 直近10年: 10×2.0=20 → 合計45
-# これを「有効年数」として使う
-YEAR_WEIGHT_SUM = sum(year_weight(y) for y in range(1996, 2026))  # = 45.0
-
-# ── 各日の元データに年代重みを適用した rain_count を推定 ─────────
-# 元データは年別でなく「30年合計」しか持っていないので、
-# 年代重みは「±3日窓内のデータを全て合算」するときに
-# 年別サンプルを均等に仮定して重みを適用する
-#
-# 具体的な計算式:
-#   weighted_rain = rain_count × (年代重みの期待値 / 1.0)
-#   weighted_total = total_years × (年代重みの期待値 / 1.0)
-# ただし元データが年代別でないため、
-# 「その30年の平均重み」で全体をスケールするのが正確。
-# 平均重み = YEAR_WEIGHT_SUM / 30 = 1.5
-# → rain_count × 1.5, total × 1.5 は比率が変わらないのでキャンセル。
-#
-# よって「年代重み」を正確に適用するには年別データが必要。
-# ここでは近似として、各年代ごとの雨の割合が一様と仮定し、
-# 直近10年のウィンドウ内サンプルを2倍にカウントする方式を採用:
-#   weighted_rain  = rain_count × weight_factor(year_group)
-#   weighted_total = total_years × weight_factor(year_group)
-# 年代別データがないため「30年を3グループに均等分割」して重み付け:
-#   group1 (1996-2005, 10年): rain=rain_count*10/30, weight=1.0
-#   group2 (2006-2015, 10年): rain=rain_count*10/30, weight=1.5
-#   group3 (2016-2025, 10年): rain=rain_count*10/30, weight=2.0
-
 def weighted_rain_total(rain_count: int, total_years: int):
-    """年代重み付きの (weighted_rain, weighted_total) を返す"""
     if total_years == 30:
-        per_group = rain_count / 3.0
-        w_rain = per_group * 1.0 + per_group * 1.5 + per_group * 2.0  # = rain_count * 1.5
-        w_total = (total_years / 3.0) * (1.0 + 1.5 + 2.0)             # = 10 * 4.5 = 45
+        pg = rain_count / 3.0
+        w_rain  = pg * 1.0 + pg * 1.5 + pg * 2.0  # = rain * 1.5
+        w_total = (total_years / 3.0) * (1.0 + 1.5 + 2.0)  # = 45
         return w_rain, w_total
     else:
-        # うるう年（8年）などは重みなしそのまま
         return float(rain_count), float(total_years)
 
-# ── メイン処理 ────────────────────────────────────────────────
-output = {}
+# ── Step1: ±3日移動平均 + 近年重み付けで基本確率を計算 ────────
+base_output = {}
 dates = all_dates()
 
 for dt in dates:
-    m_key = str(dt.month)
-    d_key = str(dt.day)
-
-    # 温度は元データそのまま（±3日の単純平均）
-    temp_sum = 0.0
-    temp_count = 0
-
-    # 雨の重み付き合算
-    total_w_rain = 0.0
-    total_w_total = 0.0
+    m_key, d_key = str(dt.month), str(dt.day)
+    temp_vals = []
+    total_w_rain = total_w_total = 0.0
 
     for nb in neighbors(dt, window=3):
         raw = get_raw(nb.month, nb.day)
         if raw is None:
             continue
         rain_count, total_years = raw
-
-        # 年代重み付き
         w_rain, w_total = weighted_rain_total(rain_count, total_years)
-        total_w_rain += w_rain
+        total_w_rain  += w_rain
         total_w_total += w_total
-
-        # 気温は元データから
-        nb_m = str(nb.month)
-        nb_d = str(nb.day)
-        if nb_m in original and nb_d in original[nb_m]:
-            t = original[nb_m][nb_d].get("average_temperature")
+        nm, nd = str(nb.month), str(nb.day)
+        if nm in original and nd in original[nm]:
+            t = original[nm][nd].get("average_temperature")
             if t is not None:
-                temp_sum += t
-                temp_count += 1
+                temp_vals.append(t)
 
     if total_w_total == 0:
         continue
 
     new_prob = round(total_w_rain / total_w_total * 100, 1)
-    new_temp = round(temp_sum / temp_count, 1) if temp_count > 0 else None
+    new_temp = round(sum(temp_vals) / len(temp_vals), 1) if temp_vals else None
 
-    # effective_years: 元の years_analyzed の±3日平均（表示用）
-    neighbor_years = []
-    for nb in neighbors(dt, window=3):
-        raw = get_raw(nb.month, nb.day)
-        if raw:
-            neighbor_years.append(raw[1])
-    effective_years = round(sum(neighbor_years) / len(neighbor_years)) if neighbor_years else 30
+    neighbor_years = [get_raw(nb.month, nb.day)[1] for nb in neighbors(dt, 3) if get_raw(nb.month, nb.day)]
+    eff_years = round(sum(neighbor_years) / len(neighbor_years)) if neighbor_years else 30
 
-    if m_key not in output:
-        output[m_key] = {}
-    output[m_key][d_key] = {
+    if m_key not in base_output:
+        base_output[m_key] = {}
+    base_output[m_key][d_key] = {
         "rain_probability": new_prob,
         "average_temperature": new_temp,
-        "years_analyzed": effective_years,
+        "years_analyzed": eff_years,
+    }
+
+# ── Step2: 月別・年間統計を計算 ──────────────────────────────
+monthly_probs = {}
+monthly_temps = {}
+for m in range(1, 13):
+    mk = str(m)
+    probs = [base_output[mk][d]["rain_probability"] for d in base_output.get(mk, {})]
+    temps = [base_output[mk][d]["average_temperature"] for d in base_output.get(mk, {})
+             if base_output[mk][d]["average_temperature"] is not None]
+    monthly_probs[m] = {"min": min(probs), "max": max(probs), "avg": round(sum(probs)/len(probs), 1)} if probs else {}
+    monthly_temps[m] = {"min": min(temps), "max": max(temps), "avg": round(sum(temps)/len(temps), 1)} if temps else {}
+
+all_temps_flat = [base_output[m][d]["average_temperature"]
+                  for m in base_output for d in base_output[m]
+                  if base_output[m][d]["average_temperature"] is not None]
+year_temp_min = min(all_temps_flat)
+year_temp_max = max(all_temps_flat)
+
+# ── Step3: 派生指標を各日に付加 ──────────────────────────────
+final_output = {}
+
+for dt in dates:
+    mk, dk = str(dt.month), str(dt.day)
+    if mk not in base_output or dk not in base_output[mk]:
+        continue
+
+    e = base_output[mk][dk]
+    prob = e["rain_probability"]
+    temp = e["average_temperature"]
+    m    = dt.month
+
+    # ① 月内の降水確率ランク（0〜100%: 月の中で何%ile か）
+    m_probs = sorted([base_output[mk][d]["rain_probability"] for d in base_output.get(mk, {})])
+    rank_idx = m_probs.index(prob) if prob in m_probs else 0
+    rain_rank_pct = round(rank_idx / max(len(m_probs) - 1, 1) * 100)  # 0=最少, 100=最多
+
+    # ② 快晴確率（降水確率の補数）
+    clear_probability = round(100 - prob, 1)
+
+    # ③ 月平均との気温差
+    temp_diff_from_monthly_avg = None
+    if temp is not None and monthly_temps[m]:
+        temp_diff_from_monthly_avg = round(temp - monthly_temps[m]["avg"], 1)
+
+    # ④ 年間での気温パーセンタイル（0=年間最低, 100=年間最高）
+    temp_percentile = None
+    if temp is not None and year_temp_max != year_temp_min:
+        temp_percentile = round((temp - year_temp_min) / (year_temp_max - year_temp_min) * 100)
+
+    # ⑤ 月平均降水確率との比較
+    rain_diff_from_monthly_avg = round(prob - monthly_probs[m]["avg"], 1) if monthly_probs[m] else None
+
+    if mk not in final_output:
+        final_output[mk] = {}
+    final_output[mk][dk] = {
+        "rain_probability":            prob,
+        "clear_probability":           clear_probability,
+        "rain_rank_in_month":          rain_rank_pct,
+        "rain_diff_from_monthly_avg":  rain_diff_from_monthly_avg,
+        "average_temperature":         temp,
+        "temp_diff_from_monthly_avg":  temp_diff_from_monthly_avg,
+        "temp_percentile":             temp_percentile,
+        "years_analyzed":              e["years_analyzed"],
     }
 
 # ── 出力 ──────────────────────────────────────────────────────
-out_path = "client/public/weather_stats.json"
-with open(out_path, "w", encoding="utf-8") as f:
-    json.dump(output, f, ensure_ascii=False, indent=2)
+with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+    json.dump(final_output, f, ensure_ascii=False, indent=2)
 
-print(f"生成完了: {out_path}")
-print(f"エントリ数: {sum(len(output[m]) for m in output)}")
-
-# 変化の確認
-print("\n=== 変化の例（元データ vs 新データ） ===")
-check_dates = [(3, 25), (7, 15), (9, 1), (12, 31)]
-for cm, cd in check_dates:
-    orig_prob = original[str(cm)][str(cd)]["rain_probability"]
-    new_prob2 = output[str(cm)][str(cd)]["rain_probability"]
-    diff = round(new_prob2 - orig_prob, 1)
-    sign = "+" if diff >= 0 else ""
-    print(f"  {cm}月{cd}日: {orig_prob}% → {new_prob2}% ({sign}{diff})")
+print(f"\n生成完了: {OUTPUT_PATH}")
+print(f"エントリ数: {sum(len(final_output[m]) for m in final_output)}")
+print("\n=== サンプル: 3月25日 ===")
+print(json.dumps(final_output['3']['25'], indent=2, ensure_ascii=False))
