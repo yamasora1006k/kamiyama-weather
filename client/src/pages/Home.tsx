@@ -42,86 +42,96 @@ export default function Home() {
   return (
     <div className="h-screen flex flex-col bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 overflow-hidden">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-green-200 shrink-0 px-6 py-3">
+      <header className="shrink-0 px-6 py-3 border-b border-green-200 bg-white/80 backdrop-blur-sm">
         <h1 className="text-xl font-bold text-green-900">神山町 天気確率予報</h1>
         <p className="text-gray-400 text-xs">気象庁の過去30年分データから天気確率を予測します</p>
       </header>
 
-      {/* Body */}
-      <div className="flex flex-1 gap-4 p-4 min-h-0">
+      {/* Body: 50/50 split */}
+      <div className="flex flex-1 min-h-0">
 
-        {/* Left: date picker */}
-        <div className="bg-white/90 rounded-2xl shadow-lg border border-green-200 p-4 flex flex-col gap-3 w-72 shrink-0">
-          {/* Year + month label */}
-          <div className="flex items-baseline gap-1.5">
-            <span className="text-xs text-gray-400">{CURRENT_YEAR}年</span>
-            <span className="text-xl font-bold text-green-900">{MONTHS[selectedMonth - 1]}</span>
-          </div>
-
-          {/* Month buttons */}
-          <div className="grid grid-cols-6 gap-1">
-            {MONTHS.map((label, i) => {
-              const m = i + 1;
-              return (
-                <button
-                  key={m}
-                  onClick={() => setSelectedMonth(m)}
-                  className={`py-1 rounded-md text-xs font-medium transition-all ${
-                    selectedMonth === m
-                      ? "bg-green-700 text-white shadow"
-                      : "bg-gray-100 text-gray-600 hover:bg-green-100"
-                  }`}
-                >
-                  {label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Calendar */}
-          <div className="flex-1">
-            <div className="grid grid-cols-7 mb-0.5">
-              {["月","火","水","木","金","土","日"].map((d) => (
-                <div key={d} className="text-center text-xs text-gray-400 py-0.5">{d}</div>
-              ))}
+        {/* Left 50%: date picker */}
+        <div className="w-1/2 flex flex-col p-4 border-r border-green-100">
+          <div className="bg-white/90 rounded-2xl shadow border border-green-200 p-4 flex flex-col gap-2 h-full">
+            {/* Year + month label */}
+            <div className="flex items-baseline gap-1.5 shrink-0">
+              <span className="text-xs text-gray-400">{CURRENT_YEAR}年</span>
+              <span className="text-2xl font-bold text-green-900">{MONTHS[selectedMonth - 1]}</span>
             </div>
-            <div className="grid grid-cols-7 gap-0.5">
-              {dayGrid.map((d, idx) =>
-                d === null ? (
-                  <div key={`e-${idx}`} />
-                ) : (
+
+            {/* Month buttons */}
+            <div className="grid grid-cols-6 gap-1 shrink-0">
+              {MONTHS.map((label, i) => {
+                const m = i + 1;
+                return (
                   <button
-                    key={d}
-                    onClick={() => setSelectedDay(d)}
-                    className={`aspect-square rounded-lg text-xs font-medium transition-all ${
-                      adjustedDay === d
+                    key={m}
+                    onClick={() => setSelectedMonth(m)}
+                    className={`py-1.5 rounded-lg text-xs font-medium transition-all ${
+                      selectedMonth === m
                         ? "bg-green-700 text-white shadow"
-                        : "bg-gray-100 text-gray-700 hover:bg-green-100"
+                        : "bg-gray-100 text-gray-600 hover:bg-green-100"
                     }`}
                   >
-                    {d}
+                    {label}
                   </button>
-                )
-              )}
+                );
+              })}
+            </div>
+
+            {/* Calendar — flex-1 to fill remaining space */}
+            <div className="flex-1 flex flex-col min-h-0">
+              <div className="grid grid-cols-7">
+                {["月","火","水","木","金","土","日"].map((d) => (
+                  <div key={d} className="text-center text-xs text-gray-400 py-1">{d}</div>
+                ))}
+              </div>
+              <div className="grid grid-cols-7 gap-1 flex-1 content-start">
+                {dayGrid.map((d, idx) =>
+                  d === null ? (
+                    <div key={`e-${idx}`} />
+                  ) : (
+                    <button
+                      key={d}
+                      onClick={() => setSelectedDay(d)}
+                      className={`aspect-square rounded-lg text-sm font-medium transition-all ${
+                        adjustedDay === d
+                          ? "bg-green-700 text-white shadow"
+                          : "bg-gray-100 text-gray-700 hover:bg-green-100"
+                      }`}
+                    >
+                      {d}
+                    </button>
+                  )
+                )}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Right: result */}
-        <div className="flex-1 flex flex-col justify-center">
-          {!stats && (
-            <p className="text-center text-gray-400 text-sm">データを読み込み中...</p>
-          )}
+        {/* Right 50%: result */}
+        <div className="w-1/2 flex flex-col p-4">
+          <div className="bg-white/90 rounded-2xl shadow border border-green-200 p-5 flex flex-col gap-4 h-full">
+            <h2 className="text-base font-bold text-green-900 shrink-0">
+              {CURRENT_YEAR}年 {MONTHS[selectedMonth - 1]} {adjustedDay}日の統計
+            </h2>
 
-          {stats && result && (
-            <div className="bg-white/90 rounded-2xl shadow-lg border border-green-200 p-6">
-              <h2 className="text-base font-bold text-green-900 mb-4">
-                {CURRENT_YEAR}年 {MONTHS[selectedMonth - 1]} {adjustedDay}日の統計
-              </h2>
+            {!stats && (
+              <div className="flex-1 flex items-center justify-center">
+                <p className="text-gray-400 text-sm">データを読み込み中...</p>
+              </div>
+            )}
 
-              <div className="flex flex-col gap-3">
+            {stats && !result && (
+              <div className="flex-1 flex items-center justify-center">
+                <p className="text-gray-400 text-sm">日付を選択してください</p>
+              </div>
+            )}
+
+            {stats && result && (
+              <div className="flex-1 flex flex-col gap-3 min-h-0">
                 {/* Rain */}
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-xl flex items-center gap-4">
+                <div className="flex-1 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 flex items-center gap-4">
                   <div className="relative w-20 h-20 shrink-0">
                     <svg className="w-full h-full" viewBox="0 0 100 100">
                       <circle cx="50" cy="50" r="40" fill="none" stroke="#e0e7ff" strokeWidth="10" />
@@ -152,9 +162,9 @@ export default function Home() {
 
                 {/* Temperature */}
                 {result.average_temperature !== null && (
-                  <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-xl flex items-center gap-4">
+                  <div className="flex-1 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-4 flex items-center gap-4">
                     <div className="w-20 flex items-center justify-center shrink-0">
-                      <span className="text-3xl font-bold text-orange-900">{result.average_temperature}°</span>
+                      <span className="text-4xl font-bold text-orange-900">{result.average_temperature}°</span>
                     </div>
                     <div>
                       <div className="flex items-center gap-1.5 mb-1">
@@ -164,28 +174,24 @@ export default function Home() {
                       <p className="text-xs text-orange-700">
                         {result.average_temperature >= 25 ? "暑い日になりそうです" :
                          result.average_temperature >= 15 ? "過ごしやすい気温です" :
-                         result.average_temperature >= 5 ? "肌寒い日です" :
+                         result.average_temperature >= 5  ? "肌寒い日です" :
                          "寒い日になりそうです"}
                       </p>
                     </div>
                   </div>
                 )}
+
+                <p className="text-xs text-gray-400 shrink-0">
+                  過去{result.years_analyzed}年分の観測データ（穴吹観測点）に基づく統計
+                </p>
               </div>
-
-              <p className="text-xs text-gray-400 mt-3">
-                過去{result.years_analyzed}年分の観測データ（穴吹観測点）に基づく統計
-              </p>
-            </div>
-          )}
-
-          {stats && !result && (
-            <p className="text-center text-gray-400 text-sm">日付を選択してください</p>
-          )}
+            )}
+          </div>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="shrink-0 text-center text-xs text-gray-400 pb-2">
+      <footer className="shrink-0 text-center text-xs text-gray-400 py-1.5">
         データソース: 気象庁 | 穴吹観測点（神山町周辺）| 1996年〜2025年
       </footer>
     </div>
