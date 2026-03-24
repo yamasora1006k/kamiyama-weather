@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     // Load weather stats
-    fetch("/weather_stats.json")
+    fetch(`${import.meta.env.BASE_URL}weather_stats.json`)
       .then((res) => res.json())
       .then((data) => setStats(data))
       .catch((err) => console.error("Failed to load weather stats:", err));
