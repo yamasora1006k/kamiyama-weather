@@ -209,7 +209,7 @@ function StatsCards({ result, month, day, mobile = false }: { result: DayStats; 
       </div>
 
       <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 flex flex-col justify-between">
-        <div className="flex items-center gap-1.5"><Sun className="w-4 h-4 text-yellow-500" /><span className="text-xs font-semibold text-gray-500">快晴確率</span></div>
+        <div className="flex items-center gap-1.5"><Sun className="w-4 h-4 text-yellow-500" /><span className="text-xs font-semibold text-gray-500">外に出れそう率</span></div>
         <div><p className="text-3xl font-bold text-yellow-600">{result.clear_probability}%</p><MiniBar value={result.clear_probability} color="bg-yellow-400" /></div>
         <p className="text-xs text-gray-400">月内 雨{result.rain_rank_in_month}%ile</p>
       </div>
